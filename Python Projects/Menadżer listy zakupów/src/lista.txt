@@ -1,3 +1,4 @@
-
-Kategoria: nabiał
- Nazwa:{'nazwa': 'ser 2 kg', ' waga/ ilość': '2k'}
+ Kategoria: nabiał
+ - Nazwa: mleko Waga/ Ilość: 2 litry
+ Kategoria: pieczywo
+ - Nazwa: bułki Waga/ Ilość: 2 sztuki

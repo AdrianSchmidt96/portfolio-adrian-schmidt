@@ -1,5 +1,5 @@
 import os
-import json
+
 
 class Product():
     def __init__(self):
@@ -15,10 +15,13 @@ class Product():
     def choiceCategory(self):
         while True:
             choice = str(input("""Wpisz kategorię, do której będziesz dodawał produkty. Do wyboru masz:
-                                    \n- pieczywo,\n- warzywa,\n- owoce,\n- mięso,\n- wędlina,\n- napoje,\n- nabiał \n: """)).lower()
+                                    \n- pieczywo,\n- warzywa,\n- owoce,\n- mięso,\n- wędlina,\n- napoje,\n- nabiał \n- jeśli natomiast chcesz zakończyć to wpisz 'exit': """)).lower()
             if choice in self.categoryList:
                 self.category = choice
                 self.choice = True
+                break
+            elif choice == "exit":
+                self.exportListToTxtFile()
                 break
             else:
                 print("UPS! wybrałeś błędną kategorię :(, spróbuj ponownie")
@@ -36,48 +39,47 @@ class Product():
         return self.name
     def get_Value(self):
         return self.value
-        
-    def addProductToList(self):
-        while True:
-            self.choiceCategory()
-            while True:
-                self.addProduct()
-                self.addValue()
-                if not self.choice:
-                    raise TypeError("Nie wybrano kategorii!")
-                
-                if self.category not in self.shoppingList:
-                    self.shoppingList[str(self.category)] = []
-                else:
-                    product =({"nazwa": str(self.name),  " waga/ ilość": self.value})
-                    self.shoppingList[self.category] = product
-
-                if self.name and self.value != None:
-                    product =({"nazwa": str(self.name),  " waga/ ilość": self.value})
-                    self.shoppingList[self.category] = product
-                
-                if self.get_Product == "exit":
-                    self.exportListToTxtFile()
-                    break
-
-                print(self.shoppingList)
-                print()
-                print()
-                print()
-                print()
-                print()
-                
-
-
     def exportListToTxtFile(self):
         scriptDir = os.path.dirname(__file__)
         os.chdir(scriptDir)
 
         fh = open("lista.txt", "w", encoding="utf-8")
         
-        for category, name,  in self.shoppingList.items():
-            fh.write(f"\nKategoria: {category}\n Nazwa:{name}")
+        for category, product in self.shoppingList.items():
+                fh.write(f" Kategoria: {category}\n")
+                for p in product:
+                    fh.write(f" - {p}\n")
+                    
+        
+       # for category, name,  in self.shoppingList.items():
+        #    fh.write(f"\nKategoria:" + f"{category}\n Nazwa:{name}")
         fh.close()
+        
+    def addProductToList(self):
+        while True:
+            self.choiceCategory()
+            self.addProduct()
+            self.addValue()
+            if not self.choice:
+                raise TypeError("Nie wybrano kategorii!")
+            if self.category not in self.shoppingList:
+                self.shoppingList[str(self.category)] = []
+            
+            if self.category in self.shoppingList and  self.name and self.value != None:
+                product = f"Nazwa: {str(self.name)}" +f" Waga/ Ilość: {str(self.value)}"
+                self.shoppingList[self.category].append(product)
+
+            for category, product in self.shoppingList.items():
+                print(f"Kategoria: {category}")
+                for p in product:
+                    print(f" - {p}")
+
+            
+               
+                
+
+
+    
 
 
 
