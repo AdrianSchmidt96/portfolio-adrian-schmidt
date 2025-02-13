@@ -1,3 +1,6 @@
+import os
+import json
+
 class Product():
     def __init__(self):
         self.name = ""
@@ -5,23 +8,29 @@ class Product():
         self.categoryList = ["pieczywo", "warzywo", "owoc", "mięso", "wędlina", "napoje", "nabiał"]
         self.category = ""
         self.shoppingList ={}
+        self.choice = False
+        
         
 
     def choiceCategory(self):
-        choice = str(input("""Wpisz kategorię, do której będziesz dodawał produkty. Do wyboru masz:
-                                \n- pieczywo,\n- warzywa,\n- owoce,\n- mięso,\n- wędlina,\n- napoje,\n- nabiał \n: """)).lower()
-        if choice in self.categoryList:
-            self.category = choice
-            return True
-        else:
-            print("UPS! wybrałeś błędną kategorię :(, spróbuj ponownie")
-            return False
+        while True:
+            choice = str(input("""Wpisz kategorię, do której będziesz dodawał produkty. Do wyboru masz:
+                                    \n- pieczywo,\n- warzywa,\n- owoce,\n- mięso,\n- wędlina,\n- napoje,\n- nabiał \n: """)).lower()
+            if choice in self.categoryList:
+                self.category = choice
+                self.choice = True
+                break
+            else:
+                print("UPS! wybrałeś błędną kategorię :(, spróbuj ponownie")
+                self.choice = False
         
     def addProduct(self):
-        self.name = input()
+        pr = input("podaj nazwę produktu: ")
+        self.name = pr
     
     def addValue(self):
-        self.value = input()
+        val = input("podaj wagę/ ilość: ")
+        self.value = val
 
     def get_Product(self):
         return self.name
@@ -30,16 +39,37 @@ class Product():
         return self.value
         
     def addProductToList(self):
-        if Product.choiceCategory == True:
-            if self.shoppingList[self.category] in self.shoppingList:
-                if self.name != None and self.category in self.categoryList:
-                    self.shoppingList[self.category]= [{"nazwa produktu: " + str(self.name) + "waga/ ilość: " + str(self.value)}+","]
-                else:
-                    print("nie dodano produktu, spróbuj ponownie")
-            else:
-                self.shoppingList = {str(self.category) + ": " + ["\n",{"nazwa produktu: " + str(self.name) + "waga/ ilość: " + str(self.value)},]}
-        else:
-            return TypeError("brak produktu na liście")
+        if not self.choice:
+           raise TypeError("Nie wybrano kategorii!")
+       
+        if self.category not in self.shoppingList:
+           self.shoppingList[self.category] = []
+
+        if self.name and self.value != None:
+            product = {"nazwa: " + str(self.name) +  ", waga/ ilość: " + self.value}
+            self.shoppingList[self.category].append(product)
+
+        print(self.shoppingList)
+        print()
+        print()
+        print()
+        print()
+        print()
+
+
+    def exportListToTxtFile(self):
+        scriptDir = os.path.dirname(__file__)
+        os.chdir(scriptDir)
+        fh = open("ListaZakupów.json", "w", encoding="utf-8")
+        fh.write(json.dumps(str(self.shoppingList)))
+
+        fh.close()
+
+
+    
+           
+           
+           
     
             
 
