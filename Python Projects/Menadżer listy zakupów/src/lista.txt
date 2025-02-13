@@ -1,0 +1,3 @@
+
+Kategoria: nabiał
+ Nazwa:{'nazwa': 'ser 2 kg', ' waga/ ilość': '2k'}

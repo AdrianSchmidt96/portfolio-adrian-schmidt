@@ -34,36 +34,55 @@ class Product():
 
     def get_Product(self):
         return self.name
-
     def get_Value(self):
         return self.value
         
     def addProductToList(self):
-        if not self.choice:
-           raise TypeError("Nie wybrano kategorii!")
-       
-        if self.category not in self.shoppingList:
-           self.shoppingList[self.category] = []
+        while True:
+            self.choiceCategory()
+            while True:
+                self.addProduct()
+                self.addValue()
+                if not self.choice:
+                    raise TypeError("Nie wybrano kategorii!")
+                
+                if self.category not in self.shoppingList:
+                    self.shoppingList[str(self.category)] = []
+                else:
+                    product =({"nazwa": str(self.name),  " waga/ ilość": self.value})
+                    self.shoppingList[self.category] = product
 
-        if self.name and self.value != None:
-            product = {"nazwa: " + str(self.name) +  ", waga/ ilość: " + self.value}
-            self.shoppingList[self.category].append(product)
+                if self.name and self.value != None:
+                    product =({"nazwa": str(self.name),  " waga/ ilość": self.value})
+                    self.shoppingList[self.category] = product
+                
+                if self.get_Product == "exit":
+                    self.exportListToTxtFile()
+                    break
 
-        print(self.shoppingList)
-        print()
-        print()
-        print()
-        print()
-        print()
+                print(self.shoppingList)
+                print()
+                print()
+                print()
+                print()
+                print()
+                
 
 
     def exportListToTxtFile(self):
         scriptDir = os.path.dirname(__file__)
         os.chdir(scriptDir)
-        fh = open("ListaZakupów.json", "w", encoding="utf-8")
-        fh.write(json.dumps(str(self.shoppingList)))
 
+        fh = open("lista.txt", "w", encoding="utf-8")
+        
+        for category, name,  in self.shoppingList.items():
+            fh.write(f"\nKategoria: {category}\n Nazwa:{name}")
         fh.close()
+
+
+
+        
+        
 
 
     
