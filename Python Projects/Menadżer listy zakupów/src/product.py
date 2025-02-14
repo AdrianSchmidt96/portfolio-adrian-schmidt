@@ -49,10 +49,7 @@ class Product():
                 fh.write(f" Kategoria: {category}\n")
                 for p in product:
                     fh.write(f" - {p}\n")
-                    
-        
-       # for category, name,  in self.shoppingList.items():
-        #    fh.write(f"\nKategoria:" + f"{category}\n Nazwa:{name}")
+
         fh.close()
         
     def addProductToList(self):
@@ -76,71 +73,4 @@ class Product():
 
             
                
-                
-
-
-    
-
-
-
-        
-        
-
-
-    
-           
-           
-           
-    
-            
-
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-    
-           
-    def categoryChoice(self):
-            print()
-            choice = str(input("""Wpisz kategorię produktu, który ma zostać dodany do listy zakupów. Do wyboru masz:
-                                \n- pieczywo,\n- warzywo,\n- owoc,\n- mięso,\n- wędlina,\n- napoj,\n- nabiał \n: """)).lower()
-
-            if choice in self.categoryList:
-                self.category = choice
-                print(self.category)
-            else:
-                print("UPS! wybrałeś błędną kategorię :(, spróbuj ponownie")
-            
-            while True:
-                print()
-                choice = str(input("""Wpisz kategorię produktu, który ma zostać dodany do listy zakupów. Do wyboru masz:
-                                    \n- pieczywo,\n- warzywo,\n- owoc,\n- mięso,\n- wędlina,\n- napoj,\n- nabiał \n  : """)).lower()
-
-                if choice in self.categoryList:
-                    self.category = choice
-                    print(self.category)
-                elif choice == "x":
-                    break
-                else:
-                    print("UPS! wybrałeś błędną kategorię :(, spróbuj ponownie")
-                
-                    
-                
-            
+          

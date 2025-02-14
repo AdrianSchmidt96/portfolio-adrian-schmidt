@@ -10,12 +10,3 @@ class Menu():
 
 
 
-
-
-
-
-
-
-""" self.FirstProduct = product
-def get_product(self):
-return self.FirstProduct"""
