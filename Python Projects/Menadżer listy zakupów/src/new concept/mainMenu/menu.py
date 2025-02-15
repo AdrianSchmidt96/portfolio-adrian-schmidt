@@ -24,7 +24,7 @@ class Menu:
                     f.createNewCategory()
                     break   
                 if True:
-                    while True:
+                    while self.notDone:
                         f.addProductToShoppingList()
                         if f.get_I == 2:
                             break
@@ -49,15 +49,24 @@ class FirstChoice():
     
 
     def createNewCategory(self):
-        firstMenu =("""Wpisz kategorię, do której będziesz dodawał produkty. Do wyboru masz:
-                                    \n- pieczywo,\n- warzywa,\n- owoce,\n- mięso,\n- wędlina,\n- napoje,\n- nabiał
-                                    : """)
-        print(firstMenu)
-        choice = str(input().lower())
+        i = True
+        while i:
+            firstMenu =("""Wpisz kategorię, do której będziesz dodawał produkty. Do wyboru masz:
+                                        \n- pieczywo,\n- warzywa,\n- owoce,\n- mięso,\n- wędlina,\n- napoje,\n- nabiał
+                                        : """)
+            print(firstMenu)
+            choice = str(input().lower())
+            
+            if choice in self.categoryList:
+                self.category = choice
+                i = False
+                
+            else:
+                print("UPS! wybrałeś błędną kategorię :(, spróbuj ponownie")
+        
+        return False
+            
 
-        if choice in self.categoryList:
-            self.category = choice
-            return False
        
     
     def addProductToShoppingList(self):
@@ -73,6 +82,10 @@ class FirstChoice():
                 self.shoppingList[self.category].append(product)
                 print()
                 con = input( "Chcesz dodać kolejny? wcisńij '1, Chcesz zmienić kategorię? wciśnij '2', jeśli natomiast chcesz zakończyć to wpisz '0': ")
+                print("""\n
+
+
+                    """)
                 if con == "2":
                     self.set_I(2)
                     break

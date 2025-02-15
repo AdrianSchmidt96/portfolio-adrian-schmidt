@@ -1,4 +1,5 @@
+ Kategoria: pieczywo
+ - Nazwa: chleb Waga/ Ilość: 2 bochenki
+ - Nazwa: bułki Waga/ Ilość: 4 
  Kategoria: nabiał
- - Nazwa: mleko Waga/ Ilość: 2
- - Nazwa: mleko Waga/ Ilość: mleko
- - Nazwa: mleko Waga/ Ilość: 2
+ - Nazwa: mleko Waga/ Ilość: 2 kartony
