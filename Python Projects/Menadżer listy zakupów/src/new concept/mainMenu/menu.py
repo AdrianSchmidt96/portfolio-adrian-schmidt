@@ -31,11 +31,13 @@ class Menu:
                         elif f.get_I == 0:
                             self.notDone = False
 
-                
         elif info == "2":
-            pass
+            s = secondChoice()
+            s.importListToTxtFile()
+
         elif info == "3":
-            pass
+            print("dziękujemy za skorzystanie z menadżera listy")
+
         elif info == None:
             pass
 
@@ -106,6 +108,10 @@ class FirstChoice():
         if not isinstance(newI, int):
             raise ValueError("I musi być liczbą całkowitą")
         self.i = newI
+    
+    @property
+    def get_ShoppingList(self):
+        return self.shoppingList
         
 
     def exportListToTxtFile(self):
@@ -120,11 +126,60 @@ class FirstChoice():
                     fh.write(f" - {p}\n")
         fh.close()
 
-   
+class secondChoice():
+    def __init__(self):
+        pass
 
-                    
+    def importListToTxtFile(self):
+        scriptDir = os.path.dirname(__file__)
+        os.chdir(scriptDir)
+
+        
+        
+        basicInfo = input("""Co chcesz zmienić?
+                          \n1.Kategorię
+                          \n2.Produkt
+                          \n3.Wartość
+                          \n: """)
+
+        while True:
+            if basicInfo == "1":
+                change1 = input("podaj kategorię: ")
+                change2 = input("podaj nową wartość: ")
+                with open("lista.txt", "r", encoding="utf-8") as file:
+                    line = file.readlines()
+
+                    for category, product in line:
+                        print(f"Kategoria: {category}")
+                    for p in product:
+                        print(f" - {p}")
+        
+                with open("lista.txt", "w", encoding="utf-8") as file:
+                    file.writelines(line)
 
 
+                print("zapisano zmiany")
+                
+            elif basicInfo == "2":
+                change1 = input("podaj kategorię: ")
+                change2 = input("podaj produkt: ")
+                change3 = input("podaj wartość: ")
+            elif basicInfo == "3":
+                change1 = input("podaj kategorię: ")
+                change2 = input("podaj produkt: ")
+                change3 = input("podaj wartość: ")
+            else:
+                return ("brak odp, spróbuj ponownie")
+
+
+
+        
+
+        
+       
+
+
+                
 
         
             
