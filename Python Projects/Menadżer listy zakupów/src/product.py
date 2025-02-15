@@ -66,10 +66,15 @@ class Product():
                 product = f"Nazwa: {str(self.name)}" +f" Waga/ Ilość: {str(self.value)}"
                 self.shoppingList[self.category].append(product)
 
+
+            return self.shoppingList
+
             for category, product in self.shoppingList.items():
                 print(f"Kategoria: {category}")
                 for p in product:
                     print(f" - {p}")
+
+        
 
             
                
