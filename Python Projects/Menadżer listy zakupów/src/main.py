@@ -4,9 +4,8 @@ from product import *
         
         
 menu = Menu()
-product = Product()
-product.addProductToList()
-
+menu.welcomePrint()
+menu.menu()
     
 
 
