@@ -1,0 +1,3 @@
+ Kategoria: pieczywo
+ - Nazwa: chleb Waga/ Ilość: 1
+ - Nazwa: bułka Waga/ Ilość: 2

@@ -1,0 +1,4 @@
+ Kategoria: nabiał
+ - Nazwa: mleko Waga/ Ilość: 2
+ - Nazwa: mleko Waga/ Ilość: mleko
+ - Nazwa: mleko Waga/ Ilość: 2
