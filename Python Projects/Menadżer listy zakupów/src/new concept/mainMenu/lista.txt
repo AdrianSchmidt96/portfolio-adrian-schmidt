@@ -1,5 +1,0 @@
- Kategoria: pieczywo
- - Nazwa: chleb Waga/ Ilość: 2 bochenki
- - Nazwa: bułki Waga/ Ilość: 2
- Kategoria: napoje
- - Nazwa: cola Waga/ Ilość: 2 litry
