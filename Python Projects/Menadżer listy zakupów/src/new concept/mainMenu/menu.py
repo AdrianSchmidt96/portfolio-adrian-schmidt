@@ -1,4 +1,5 @@
 import os
+import psycopg2
 
 class Menu:
     def __init__(self):
@@ -80,8 +81,38 @@ class FirstChoice():
             while True:
                 pr = input("podaj nazwę produktu: ")
                 val = input("podaj wagę/ ilość: ")
-                product = f"Nazwa: {str(pr)}" +f" Waga/ Ilość: {str(val)}"
-                self.shoppingList[self.category].append(product)
+                cat = self.category
+                
+                user = "postgres"
+                password = "admin123"
+                host = "localhost"
+                database = "MLZ"
+                try:
+                    connection = psycopg2.connect(host = host, user=user, password = password, dbname = database)
+                    print("--------")
+                    print("nawiązano połączenie z bazą")
+                    cursor = connection.cursor()
+                    add = """
+                        INSERT INTO shopping_list_manager (name, value, category)
+                        VALUES(%s,%s,%s)
+                    """
+                    cursor.execute(add,( pr, val, cat))
+                    product = f"Nazwa: {str(pr)}" +f" Waga/ Ilość: {str(val)}"
+                    self.shoppingList[self.category].append(product)
+                    
+                    connection.commit()
+                    print("--------")
+                    print("Dodano produkt do bazy")
+
+                except(Exception,psycopg2.DatabaseError) as error:
+                    print("Błąd podczas tworzenia", error)    
+                finally:
+                    connection.close()
+                    cursor.close()
+                    print("--------")
+                    print("Zamknięto połączenie z bazą danych")
+
+
                 print()
                 con = input( "Chcesz dodać kolejny? wcisńij '1, Chcesz zmienić kategorię? wciśnij '2', jeśli natomiast chcesz zakończyć to wpisz '0': ")
                 print("""\n
@@ -160,16 +191,7 @@ class secondChoice():
 
                 print("zapisano zmiany")
                 
-            elif basicInfo == "2":
-                change1 = input("podaj kategorię: ")
-                change2 = input("podaj produkt: ")
-                change3 = input("podaj wartość: ")
-            elif basicInfo == "3":
-                change1 = input("podaj kategorię: ")
-                change2 = input("podaj produkt: ")
-                change3 = input("podaj wartość: ")
-            else:
-                return ("brak odp, spróbuj ponownie")
+           
 
 
 
