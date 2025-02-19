@@ -20,6 +20,7 @@ class Menu:
 
         if info == "1":
             f = FirstChoice()
+            f.cleanTable()
             while self.notDone:
                 while True:
                     f.createNewCategory()
@@ -50,6 +51,31 @@ class FirstChoice():
         self.category = ""
         self.i = 0
     
+    def cleanTable(self):
+        user = "postgres"
+        password = "admin123"
+        host = "localhost"
+        database = "MLZ"
+        try:
+            connection = psycopg2.connect(host = host, user=user, password = password, dbname = database)
+            print("--------")
+            print("nawiązano połączenie z bazą")
+            cursor = connection.cursor()
+            clean = "TRUNCATE TABLE shopping_list_manager"
+            
+            cursor.execute(clean)
+            
+            connection.commit()
+            print("--------")
+            print("Wyczyszczono bazę")
+
+        except(Exception,psycopg2.DatabaseError) as error:
+            print("Błąd podczas czyszczenia bazy", error)    
+        finally:
+            connection.close()
+            cursor.close()
+            print("--------")
+            print("Zamknięto połączenie z bazą danych")
 
     def createNewCategory(self):
         i = True
@@ -161,12 +187,42 @@ class secondChoice():
     def __init__(self):
         pass
 
+
+    def updateData(self):
+        user = "postgres"
+        password = "admin123"
+        host = "localhost"
+        database = "MLZ"
+        try:
+            connection = psycopg2.connect(host = host, user=user, password = password, dbname = database)
+            print("--------")
+            print("nawiązano połączenie z bazą")
+            cursor = connection.cursor()
+            add = """
+                INSERT INTO shopping_list_manager (name, value, category)
+                VALUES(%s,%s,%s)
+            """
+            cursor.execute(add,( pr, val, cat))
+            product = f"Nazwa: {str(pr)}" +f" Waga/ Ilość: {str(val)}"
+            self.shoppingList[self.category].append(product)
+            
+            connection.commit()
+            print("--------")
+            print("Dodano produkt do bazy")
+
+        except(Exception,psycopg2.DatabaseError) as error:
+            print("Błąd podczas aktualizacji listy", error)    
+        finally:
+            connection.close()
+            cursor.close()
+            print("--------")
+            print("Zamknięto połączenie z bazą danych")
+
+
     def importListToTxtFile(self):
         scriptDir = os.path.dirname(__file__)
         os.chdir(scriptDir)
 
-        
-        
         basicInfo = input("""Co chcesz zmienić?
                           \n1.Kategorię
                           \n2.Produkt
