@@ -87,8 +87,7 @@ class FirstChoice():
                     cursor.execute(showAll)
                     result = cursor.fetchall()
                 
-                    scriptDir = os.path.dirname(__file__)
-                    os.chdir(scriptDir)
+                    os.chdir("./")
 
                     fh = open("lista.txt", "w", encoding="utf-8")
                 
@@ -116,7 +115,7 @@ class FirstChoice():
 
 
                 print()
-                con = input( "Chcesz dodać kolejny? wcisńij '1, Chcesz zmienić kategorię? wciśnij '2', jeśli natomiast chcesz zakończyć to wpisz '0': ")
+                con = input( "Chcesz dodać kolejny? wcisńij '1, Chcesz zmienić kategorię? wciśnij '2', jeśli natomiast chcesz zakończyć i wrócić do menu głównego wybierz '0': ")
                 print("""\n
 
 

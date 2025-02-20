@@ -60,7 +60,13 @@ class SecondChoice():
             print()
 
             getInfo = input("chcesz zmienić nazwę? 1 - tak, 2 - nie: ")
-            getInfo = int(getInfo)
+            try:
+                getInfo = int(getInfo)
+            except ValueError:
+                print()
+                print("Nie można przekonwertować na liczbę całkowitą")
+                print()
+            
             if getInfo == 1:
                 name = input("podaj nową nazwę: ")
             else:
@@ -69,7 +75,12 @@ class SecondChoice():
             print()
 
             getInfo = input("chcesz zmienić wartość?? 1 - tak, 2 - nie: ")
-            getInfo = int(getInfo)
+            try:
+                getInfo = int(getInfo)
+            except ValueError:
+                print()
+                print("Nie można przekonwertować na liczbę całkowitą")
+                print()
             if getInfo == 1:
                 value = input("podaj nową wartość: ")
             else:
@@ -78,7 +89,12 @@ class SecondChoice():
             print()
 
             getInfo = input("chcesz zmienić kategorię?? 1 - tak, 2 - nie: ")
-            getInfo = int(getInfo)
+            try:
+                getInfo = int(getInfo)
+            except ValueError:
+                print()
+                print("Nie można przekonwertować na liczbę całkowitą")
+                print()
             if getInfo == 1:
                 category = input("""Podaj nową kategorię. Do wyboru masz:
                     \n- pieczywo,\n- warzywa,\n- owoce,\n- mięso,\n- wędlina,\n- napoje,\n- nabiał:  """ )
@@ -89,8 +105,9 @@ class SecondChoice():
                     category = category
                 
             else:
-                    category = getChose[3]
+                category = getChose[3]
 
+        
         else:
             print("Podałeś błędny numer")
 
@@ -104,7 +121,7 @@ class SecondChoice():
         id = n[0]
         self.update(id,name, value,category,update)
 
-        
+
     
 
 
@@ -121,8 +138,8 @@ class SecondChoice():
             cursor.execute(showAll)
             result = cursor.fetchall()
            
-            scriptDir = os.path.dirname(__file__)
-            os.chdir(scriptDir)
+            
+            os.chdir("./")
 
             fh = open("lista.txt", "w", encoding="utf-8")
         

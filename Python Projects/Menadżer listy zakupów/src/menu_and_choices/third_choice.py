@@ -20,8 +20,7 @@ class ThirdChoice():
             cursor.execute(showAll)
             result = cursor.fetchall()
             
-            scriptDir = os.path.dirname(__file__)
-            os.chdir(scriptDir)
+            os.chdir("./")
 
             fh = open("lista.txt", "w", encoding="utf-8")
         
