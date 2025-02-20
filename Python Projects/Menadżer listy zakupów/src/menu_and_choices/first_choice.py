@@ -4,7 +4,7 @@ import psycopg2
 class FirstChoice():
     def __init__(self):
         self.shoppingList = {}
-        self.categoryList = ["pieczywo", "warzywo", "owoc", "mięso", "wędlina", "napoje", "nabiał"]
+        self.categoryList = ["pieczywo", "warzywa", "owoce", "mięso", "wędlina", "napoje", "nabiał"]
         self.category = ""
         self.i = 0
     
