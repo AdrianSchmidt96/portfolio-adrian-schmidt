@@ -1,0 +1,2 @@
+. |NAZWA|: mleko |WARTOŚĆ|: 100000 |KATEGORIA|: nabiał
+. |NAZWA|: chleb |WARTOŚĆ|: 2 bochenki |KATEGORIA|: pieczywo

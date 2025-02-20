@@ -1,49 +1,6 @@
 import os
 import psycopg2
 
-class Menu:
-    def __init__(self):
-        self.notDone = True
-
-    def mainMenu(self):
-        print("""######### Menu główne #########  
-              \nCo chcesz zrobić?
-              \n1. utworzyć nową listę zakupów
-              \n2. zaktualizować istniejącą listę
-              \n3. wyjść
-               """)
-        
-    
-        
-    def logicChoice(self):
-        info = input("Co wybierasz?")
-
-        if info == "1":
-            f = FirstChoice()
-            f.cleanTable()
-            while self.notDone:
-                while True:
-                    f.createNewCategory()
-                    break   
-                if True:
-                    while self.notDone:
-                        f.addProductToShoppingList()
-                        if f.get_I == 2:
-                            break
-                        elif f.get_I == 0:
-                            self.notDone = False
-
-        elif info == "2":
-            s = secondChoice()
-            s.importListToTxtFile()
-
-        elif info == "3":
-            print("dziękujemy za skorzystanie z menadżera listy")
-
-        elif info == None:
-            pass
-
-
 class FirstChoice():
     def __init__(self):
         self.shoppingList = {}
@@ -81,8 +38,7 @@ class FirstChoice():
         i = True
         while i:
             firstMenu =("""Wpisz kategorię, do której będziesz dodawał produkty. Do wyboru masz:
-                                        \n- pieczywo,\n- warzywa,\n- owoce,\n- mięso,\n- wędlina,\n- napoje,\n- nabiał
-                                        : """)
+                                        \n- pieczywo,\n- warzywa,\n- owoce,\n- mięso,\n- wędlina,\n- napoje,\n- nabiał: """)
             print(firstMenu)
             choice = str(input().lower())
             
@@ -125,6 +81,26 @@ class FirstChoice():
                     cursor.execute(add,( pr, val, cat))
                     product = f"Nazwa: {str(pr)}" +f" Waga/ Ilość: {str(val)}"
                     self.shoppingList[self.category].append(product)
+
+                    showAll = "SELECT * FROM shopping_list_manager ORDER BY category ASC"
+
+                    cursor.execute(showAll)
+                    result = cursor.fetchall()
+                
+                    scriptDir = os.path.dirname(__file__)
+                    os.chdir(scriptDir)
+
+                    fh = open("lista.txt", "w", encoding="utf-8")
+                
+                    x = 0
+                    for i in result:
+                        shpList = i                
+                        print(x,". |NAZWA|: "+ shpList[1]+ " |WARTOŚĆ|: "+ shpList[2] + " |KATEGORIA|: " +  shpList[3] )
+                        fh.write(". |NAZWA|: "+ shpList[1]+ " |WARTOŚĆ|: "+ shpList[2] + " |KATEGORIA|: " +  shpList[3] + "\n")
+                        x +=1
+                        print()
+
+                    fh.close()
                     
                     connection.commit()
                     print("--------")
@@ -150,8 +126,6 @@ class FirstChoice():
                     break
                 if con == "0":
                     self.set_I(0)
-                    self.exportListToTxtFile()
-                    print("Lista wygenerowana. Dziękujemy za skorzystanie z naszej listy zakupów.")
                     break
         
         return False
@@ -169,96 +143,4 @@ class FirstChoice():
     @property
     def get_ShoppingList(self):
         return self.shoppingList
-        
-
-    def exportListToTxtFile(self):
-        scriptDir = os.path.dirname(__file__)
-        os.chdir(scriptDir)
-
-        fh = open("lista.txt", "w", encoding="utf-8")
-        
-        for category, product in self.shoppingList.items():
-                fh.write(f" Kategoria: {category}\n")
-                for p in product:
-                    fh.write(f" - {p}\n")
-        fh.close()
-
-class secondChoice():
-    def __init__(self):
-        pass
-
-
-    def updateData(self):
-        user = "postgres"
-        password = "admin123"
-        host = "localhost"
-        database = "MLZ"
-        try:
-            connection = psycopg2.connect(host = host, user=user, password = password, dbname = database)
-            print("--------")
-            print("nawiązano połączenie z bazą")
-            cursor = connection.cursor()
-            add = """
-                INSERT INTO shopping_list_manager (name, value, category)
-                VALUES(%s,%s,%s)
-            """
-            cursor.execute(add,( pr, val, cat))
-            product = f"Nazwa: {str(pr)}" +f" Waga/ Ilość: {str(val)}"
-            self.shoppingList[self.category].append(product)
-            
-            connection.commit()
-            print("--------")
-            print("Dodano produkt do bazy")
-
-        except(Exception,psycopg2.DatabaseError) as error:
-            print("Błąd podczas aktualizacji listy", error)    
-        finally:
-            connection.close()
-            cursor.close()
-            print("--------")
-            print("Zamknięto połączenie z bazą danych")
-
-
-    def importListToTxtFile(self):
-        scriptDir = os.path.dirname(__file__)
-        os.chdir(scriptDir)
-
-        basicInfo = input("""Co chcesz zmienić?
-                          \n1.Kategorię
-                          \n2.Produkt
-                          \n3.Wartość
-                          \n: """)
-
-        while True:
-            if basicInfo == "1":
-                change1 = input("podaj kategorię: ")
-                change2 = input("podaj nową wartość: ")
-                with open("lista.txt", "r", encoding="utf-8") as file:
-                    line = file.readlines()
-
-                    for category, product in line:
-                        print(f"Kategoria: {category}")
-                    for p in product:
-                        print(f" - {p}")
-        
-                with open("lista.txt", "w", encoding="utf-8") as file:
-                    file.writelines(line)
-
-
-                print("zapisano zmiany")
-                
-           
-
-
-
-        
-
-        
-       
-
-
-                
-
-        
-            
-            
+    
