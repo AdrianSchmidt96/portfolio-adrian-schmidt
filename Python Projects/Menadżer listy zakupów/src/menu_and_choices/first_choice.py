@@ -91,7 +91,7 @@ class FirstChoice():
 
                     fh = open("lista.txt", "w", encoding="utf-8")
                 
-                    x = 0
+                    x = 1
                     for i in result:
                         shpList = i                
                         print(x,". |NAZWA|: "+ shpList[1]+ " |WARTOŚĆ|: "+ shpList[2] + " |KATEGORIA|: " +  shpList[3] )

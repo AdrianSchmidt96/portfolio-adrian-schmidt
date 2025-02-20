@@ -1,9 +1,1 @@
-. |NAZWA|: kurczak |WARTOŚĆ|: 5kg |KATEGORIA|: mięso
-. |NAZWA|: karkówka |WARTOŚĆ|: 2kg |KATEGORIA|: mięso
-. |NAZWA|: kaczka |WARTOŚĆ|: 4kg |KATEGORIA|: mięso
-. |NAZWA|: mleko |WARTOŚĆ|: 100000 |KATEGORIA|: nabiał
-. |NAZWA|: bułki |WARTOŚĆ|: 12 |KATEGORIA|: pieczywo
-. |NAZWA|: bułki |WARTOŚĆ|: 21 |KATEGORIA|: pieczywo
-. |NAZWA|: chleb |WARTOŚĆ|: 2 bochenki |KATEGORIA|: pieczywo
-. |NAZWA|: z puszki |WARTOŚĆ|: 2kg |KATEGORIA|: wędlina
-. |NAZWA|: krakowska |WARTOŚĆ|: 2kg |KATEGORIA|: wędlina
+. |NAZWA|: bułki |WARTOŚĆ|: 2 |KATEGORIA|: pieczywo
