@@ -16,6 +16,7 @@ class GetApi():
             response.raise_for_status()
                  
             self.currencyValueList = response.json()
+            
             #$print("Aktualne kursy walut pobrane")
             #print("----------------------------")
 

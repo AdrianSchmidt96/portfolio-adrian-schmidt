@@ -15,10 +15,12 @@ class Cantor():
         for rate in self.getApi.getCurrencyValue()[0]['rates']:
             code = rate['code']
             currencyList.append(code)
+        
+        print(currencyList)
         i = 1
         while i:
             setFirstCurrency = input("Podaj walutę(kod): ").upper()
-            if setFirstCurrency in currencyList and setFirstCurrency != setFirstCurrency :
+            if setFirstCurrency in currencyList and setFirstCurrency != setFirstCurrency:
                     self.firstCurrency = setFirstCurrency
                     print()
                     while i:
@@ -44,23 +46,25 @@ class Cantor():
                 print("podałeś błędny kod waluty... spróbuj ponownie")
                 self.firstCurrency = None
         
-                
-
-
-
-    
-     
-        
-        
-        
-    
+   
 
     def calculation(self):
         currencyValue = self.getApi.getCurrencyValue()
 
         for rate in currencyValue[0]['rates']:
-            pass
-
+            code1 = rate["code"]
+            val1 = rate ["mid"]
+            if code1 == self.firstCurrency:
+                break
+        for rate in currencyValue[0]['rates']:
+            code2 = rate["code"]
+            val2 = rate ["mid"]
+            if code2 == self.secondCurrency:
+                break
+        result = self.firstValue * (val1/ val2)
+        
+        print(result)
 
 c = Cantor ()
 c.setFirstCurrencyValueAndSecondCurrency()
+c.calculation()
