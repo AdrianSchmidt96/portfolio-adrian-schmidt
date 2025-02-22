@@ -31,7 +31,7 @@ class Cantor():
                             print()
                             while i:
                                 setSecondCurrency = input("Podaj walutę, na którą chcesz wymienić swoje środki: ").upper()
-                                if setSecondCurrency in currencyList and setSecondCurrency is not self.firstCurrency:
+                                if setSecondCurrency in currencyList and setSecondCurrency != self.firstCurrency:
                                     self.secondCurrency = setSecondCurrency
                                     print()
                                     i = 0
@@ -46,6 +46,8 @@ class Cantor():
                 print("podałeś błędny kod waluty... spróbuj ponownie")
                 self.firstCurrency = None
         self.calculation()
+        info = input("Chcesz nadal coś wymienić? jeśli tak to wpisz 1, jeśli nie to wpisz 0: ")
+        return info
    
 
     def calculation(self):
@@ -68,7 +70,7 @@ class Cantor():
             result = self.firstValue * val
             print(round(result,2))
 
-        if self.firstCurrency and self.secondCurrency != "PLN":
+        if self.firstCurrency != "PLN" and self.secondCurrency != "PLN":
             for rate in currencyValue[0]['rates']:
                 code1 = rate["code"]
                 val1 = rate ["mid"]

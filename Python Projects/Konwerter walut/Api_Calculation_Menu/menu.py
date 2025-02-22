@@ -10,8 +10,7 @@ class Menu:
         print("""Witaj w kantorze by Adrian Schmidt!
               \nCo chcesz zrobić?
               \n1.Wymienić walutę
-              \n2.Sprawdzić aktualne kursy walut w stosunku do PLN
-              \n3.Wyjść
+              \n2.Wyjść
 
               """)
 
@@ -22,7 +21,7 @@ class Menu:
             if info == "1":
                 self.cantor.setFirstCurrencyValueAndSecondCurrency()
             elif info == "2":
-                pass
-            elif info == "3":
                 x = 0
+
+                         
         print("Dziękujemy za skorzystanie z kantoru")
