@@ -19,4 +19,10 @@ class Menu:
         info = input(":")
         x = 1
         while x:
-            
+            if info == "1":
+                self.cantor.setFirstCurrencyValueAndSecondCurrency()
+            elif info == "2":
+                pass
+            elif info == "3":
+                x = 0
+        print("Dziękujemy za skorzystanie z kantoru")

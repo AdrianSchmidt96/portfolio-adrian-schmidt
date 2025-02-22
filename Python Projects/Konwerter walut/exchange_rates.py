@@ -1,15 +1,10 @@
 from getApi import *
 
-class Cantor():
+class ShowRates():
     def __init__(self):
         self.getApi = GetApi()
-        self.firstCurrency = ""
-        self.firstValue = 0
-        self.secondCurrency = ""
 
-
-
-    def setFirstCurrencyValueAndSecondCurrency(self):
+    def x(self):
         currencyList = ["PLN"]
             
         for rate in self.getApi.getCurrencyValue()[0]['rates']:
@@ -46,40 +41,3 @@ class Cantor():
                 print("podałeś błędny kod waluty... spróbuj ponownie")
                 self.firstCurrency = None
         self.calculation()
-   
-
-    def calculation(self):
-        currencyValue = self.getApi.getCurrencyValue()
-        if self.firstCurrency == "PLN":
-            for rate in currencyValue[0]['rates']:
-                code = rate["code"]
-                val = rate ["mid"]
-                if code == self.secondCurrency:
-                    break
-            result = self.firstValue / val
-            print(round(result,2))
-
-        if self.secondCurrency == "PLN":
-            for rate in currencyValue[0]['rates']:
-                code = rate["code"]
-                val = rate ["mid"]
-                if code == self.firstCurrency:
-                    break
-            result = self.firstValue * val
-            print(round(result,2))
-
-        if self.firstCurrency and self.secondCurrency != "PLN":
-            for rate in currencyValue[0]['rates']:
-                code1 = rate["code"]
-                val1 = rate ["mid"]
-                if code1 == self.firstCurrency:
-                    break
-            for rate in currencyValue[0]['rates']:
-                code2 = rate["code"]
-                val2 = rate ["mid"]
-                if code2 == self.secondCurrency:
-                    break
-            result = self.firstValue * (val1/ val2)
-            
-            print(round(result,2))
-
