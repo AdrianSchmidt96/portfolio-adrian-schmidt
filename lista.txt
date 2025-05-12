@@ -1,1 +1,0 @@
-. |NAZWA|: bułki |WARTOŚĆ|: 2 |KATEGORIA|: pieczywo
