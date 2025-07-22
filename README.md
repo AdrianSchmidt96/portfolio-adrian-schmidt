@@ -10,8 +10,6 @@ Buduję portfolio, które ma pokazać **realne umiejętności przydatne w pracy*
 ## Co już jest?
 
 W repo znajdziesz pierwszy projekt z analizy danych. To mój start – pokazuję podstawowe operacje na danych, czyszczenie, grupowanie i wstępne wnioski.  
-Projekt będzie jeszcze rozwijany o wizualizacje i narrację biznesową.
-
 ---
 
 ## Co dalej?
