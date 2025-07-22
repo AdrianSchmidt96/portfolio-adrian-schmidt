@@ -54,9 +54,6 @@ Chcę pokazać, że rozumiem nie tylko kod, ale też kontekst i potrzeby biznesu
 - **Git, GitHub**
 
 ---
-
 ## Kontakt:
-
-
 🔗 [LinkedIn – Adrian Schmidt](https://www.linkedin.com/in/adrian-schmidt-9829941a6)
 
