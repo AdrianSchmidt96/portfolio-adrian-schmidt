@@ -3,7 +3,7 @@ import pandas as pd
 # Stworzenie funkcji,która odpowiada za wstępne czyszczenie i ujednolicenie kolumn
 
 
-def clean_column_and_save (df, out_data='../data/clean_data/cleaned_creditcard.csv'):
+def clean_column_and_save (df, out_data='../data/clean_data/before_eda/cleaned_creditcard.csv'):
     '''
     Czyści nazwy kolumn:
     - zamienia wszystkie litery na małe,

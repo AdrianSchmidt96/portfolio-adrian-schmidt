@@ -1,4 +1,4 @@
-,transaction_date,data_księgowania,dane_kontrahenta,tytuł,nr_rachunku,nazwa_banku,szczegóły,nr_transakcji,kwota_transakcji_(waluta_rachunku),currency,kwota_blokady/zwolnienie_blokady,waluta_blokady,kwota_płatności_w_walucie,waluta_płatności,konto,balance_after_transaction,waluta_salda
+,data_transakcji,data_księgowania,dane_kontrahenta,tytuł,nr_rachunku,nazwa_banku,szczegóły,nr_transakcji,kwota_transakcji_(waluta_rachunku),waluta,kwota_blokady/zwolnienie_blokady,waluta_blokady,kwota_płatności_w_walucie,waluta_płatności,konto,saldo_po_transakcji,waluta_salda
 0,2019-01-01,2019-01-03,Orlen,Płatność Orlen,PL47525525636630696177023059,mBank,,7979693581,-227.33,PLN,,,,,Wspólne,9772.67,PLN
 1,2019-01-01,2019-01-02,Biuro Notarialne,Płatność Biuro Notarialne,PL72634487227183186158541068,ING,,9417345785,-9887.59,PLN,,,,,Konto w EUR,-114.92,PLN
 2,2019-01-04,2019-01-04,PokerStars,Płatność PokerStars,PL85502768236074445829791826,Santander,,5125063457,-1169.17,EUR,,,,,Konto w EUR,-1284.09,EUR
