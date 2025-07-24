@@ -20,8 +20,8 @@ Plan na najbliższe tygodnie to:
 
 ### 🔍 Projekty w przygotowaniu:
 
-1. **Red Flag Analyzer**  
-Wykrywanie podejrzanych transakcji – projekt antyfraudowy z klasyfikacją ryzyka.
+1. **KYC Analyzer**  
+Wykrywanie podejrzanych transakcji w celu oceny ryzyka AML/ KYC
 
 2. **Productivity Leak Detector**  
 Analiza strat czasowych i finansowych w pracy zespołów.
