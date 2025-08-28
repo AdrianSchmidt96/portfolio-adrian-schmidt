@@ -1,57 +1,59 @@
-# Portfolio – Projekty Analityczne
+# Portfolio – Projekty Analityczne  
 
-Tutaj znajdziesz, co naprawdę potrafię jako analityk danych.
-
-Nie ma tu pustych wizualizacji ani sztucznych projektów „pod publikę”.  
-Buduję portfolio, które ma pokazać **realne umiejętności przydatne w pracy** – od analizy danych, przez automatyzację, po zrozumienie biznesu.
+To moje miejsce na projekty, gdzie pokazuję, co naprawdę potrafię jako analityk danych.  
+Nie ma tu sztucznych przykładów tylko po to, żeby coś było. Każdy projekt ma mieć sens i wartość – takie rzeczy, które faktycznie przydają się w pracy.  
 
 ---
 
-## Co już jest?
+## Projekty, które już wrzuciłem
+- **01_sales-performance-analysis** – pierwszy projekt, prosta analiza sprzedaży, czyszczenie danych, grupowanie i wnioski.  
+- **02_kyc_analyzer** – analiza podejrzanych transakcji pod kątem KYC/AML.  
 
-W repo znajdziesz pierwszy projekt z analizy danych. To mój start – pokazuję podstawowe operacje na danych, czyszczenie, grupowanie i wstępne wnioski.  
 ---
 
-## Co dalej?
+## Nowe: **SQL Case Study – Analiza transakcji**
+Na start skupiłem się na nocnych transakcjach (23–05).  
+Zrobiłem ranking klientów, którzy mają największy ruch w tych godzinach, a potem ściągnąłem szczegóły ich transakcji do dalszej analizy.  
 
-Pracuję nad kolejnymi projektami, które mają mieć konkretne zastosowanie.  
-Nie robię tego na szybko – każdy projekt ma mieć sens i wartość.  
-Plan na najbliższe tygodnie to:
+### Plany rozwoju tego case study:
+- **Wykrywanie anomalii:** np. podejrzane końcówki kwot (999.99 zamiast 1000), seria małych wpłat w krótkim czasie, porównanie transakcji klienta do jego historii.  
+- **Cykl życia transakcji:** miesięczne wolumeny, nagłe skoki i spadki.  
+- **Optymalizacja zapytań:** indeksy, materialized view, `EXPLAIN ANALYZE` do poprawy wydajności.  
 
-### 🔍 Projekty w przygotowaniu:
+---
 
-1. **KYC Analyzer**  
-Wykrywanie podejrzanych transakcji w celu oceny ryzyka AML/ KYC
+## Co mam dalej w planach
 
-2. **Productivity Leak Detector**  
-Analiza strat czasowych i finansowych w pracy zespołów.
+### Segmentacja klientów (Python/Pandas)  
+- RFM (Recency, Frequency, Monetary) – klasyczna segmentacja klientów.  
+- Model scoringowy ryzyka (np. Random Forest).  
+- Analiza churnu – kto i kiedy może odejść.  
 
-3. **Marketing Campaign Post-Mortem**  
-Analiza porażki kampanii marketingowej – co poszło nie tak i dlaczego.
+### Dashboard w Power BI – Raport ryzyka  
+- Opowiadanie historii danymi: od ogólnego widoku do szczegółów.  
+- KPI (np. FCR – First Contact Resolution).  
+- Sekcja z alertami – krytyczne anomalie do sprawdzenia.  
 
-4. **Data Quality Sentinel**  
-Projekt skupiony na czyszczeniu brudnych danych – coś, co robi się naprawdę w każdej firmie.
-
-5. **KPI Tracker Automation**  
-Automatyczne raporty KPI, które oszczędzają czas i pomagają podejmować decyzje.
+### Automatyzacja w Pythonie – raport tygodniowy  
+- (opcjonalnie) Web scraping np. kursów walut.  
+- Generowanie raportu PDF (Pandas + Matplotlib/Seaborn).  
+- Automatyczna wysyłka raportu na maila.  
+- Harmonogram (Task Scheduler / cron).  
 
 ---
 
 ## Dlaczego takie projekty?
-
-Mają one **realne przełożenie na to, co robi analityk danych w firmie**.  
-Chcę pokazać, że rozumiem nie tylko kod, ale też kontekst i potrzeby biznesu.
+Bo to rzeczy, które realnie robi się w pracy analityka. Chcę pokazać, że potrafię nie tylko pisać zapytania czy skrypty, ale też rozumiem biznesowy kontekst.  
 
 ---
 
-## Technologie, które wykorzystuję:
-
-- **Python (Pandas, NumPy, Requests)**  
-- **SQL (PostgreSQL)**  
-- **Power BI, Excel**  
-- **Git, GitHub**
+## Technologie
+- Python (Pandas, NumPy, Requests)  
+- SQL (PostgreSQL)  
+- Power BI, Excel  
+- Git, GitHub  
 
 ---
-## Kontakt:
-🔗 [LinkedIn – Adrian Schmidt](https://www.linkedin.com/in/adrian-schmidt-9829941a6)
 
+## Kontakt
+🔗 [LinkedIn – Adrian Schmidt](https://www.linkedin.com/in/adrian-schmidt-9829941a6/)  
